@@ -1,0 +1,81 @@
+﻿# UTF-8でエンコードされたプロパティーファイルです
+charset: UTF-8
+
+# jasypt.encryptor.password=mypassword
+jasypt:
+  encryptor:
+    password: ${JASYPT_ENCRYPTOR_PASSWORD:}
+
+# -----DB設計-----
+spring:
+  servlet:
+    multipart:
+      #-----アップロード上限-----
+      max-file-size: 10MB 
+      max-request-size: 10MB  
+  jpa:
+    open-in-view: false
+    database: POSTGRESQL
+  devtools:
+    remote:
+      restart:
+        enabled: true
+    livereload:
+      enabled: true
+  datasource:
+    # primary database
+    primary:
+      url: jdbc:postgresql://192.168.0.0:5432/kai9tmpl?ApplicationName=kai9tmpl-tmpl
+      # IDとPWは暗号化しているのでOSの環境変数にパスフレーズを登録しないと動かない
+      username: kai9tmpladmin
+      password: ENC(IkjCx4UJBRtUnP+2Vh/YEwGlhahidsamklA1OJc38ek63+uIhuWznLDEPBRLlCX1MchMuuK)
+      driverClassName: org.postgresql.Driver
+      maximumPoolSize: 10
+      minimumidle: 1
+      schema: kai9tmpl
+    # common database
+    common:
+      url: jdbc:postgresql://192.168.0.0:5432/kai9com?ApplicationName=kai9tmpl-com
+      # IDとPWは暗号化しているのでOSの環境変数にパスフレーズを登録しないと動かない
+      username: ENC(AP2t5fru/EZVMrkaijemaDE9EdutG7MlG8rcfn7492ftA7fWEkg8tQBP2lGBE/aUhhw/j6A)
+      password: ENC(ZNc1zGYIrB/Tdq1Sbk0VDfuBPblamzina6rG/dfufVLB/7Ip3l4Ky1s4YtZJtUYQO0umjE9)
+      driverClassName: org.postgresql.Driver
+      maximumPoolSize: 10
+      minimumidle: 1
+      schema: kai9com
+
+#[参考URL] https://stackoverflow.com/questions/15261456/how-do-i-disable-fail-on-empty-beans-in-jackson
+
+# -----SSL-----
+# ポート番号
+server:
+  port: 9444
+  ssl:
+    # プロトコル
+    protocol: TLSv1.3
+    # キーストア・タイプ
+    key-store-type: PKCS12
+    # 鍵の格納先(本物証明書2022/10～90日有効)
+    key-store: classpath:keystore/keystore.p12
+    # 鍵の格納先(自己証明書)
+    # key-store: classpath:keystore/self_keystore.p12
+    # 鍵のパスワード
+    key-store-password: kai9kai9
+    # keystore内部におけるkeypairの名称
+    key-alias: kai9keypair
+
+#-----JWT-----
+jwt:
+  domain: kai9tmpl.com
+  secretKey: ENC(lTBG1qvNNN+1og1jbkanjz0C8HyYo3/+m7lh0MKIwap04R9/qQnY2mDR2h3fW4CTS5wTr9Sb8fFVlxUBk1txtpBrKTqQ==)
+  
+
+# -----ログファイル-----
+# ログを出力するレベル(デフォルトINFO)
+logging:
+  level:
+    root: INFO
+#    root: DEBUG
+  file:
+    path: D:\kai9\kai9tmpl\log
+

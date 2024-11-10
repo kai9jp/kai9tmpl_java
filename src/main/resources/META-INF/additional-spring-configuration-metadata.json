@@ -1,0 +1,197 @@
+{"properties": [
+  {
+    "name": "myproperties.CookieMaxAge",
+    "type": "java.lang.String",
+    "description": "A description for 'myproperties.CookieMaxAge'"
+  },
+  {
+    "name": "CookieMaxAge",
+    "type": "java.lang.String",
+    "description": "A description for 'CookieMaxAge'"
+  },
+  {
+    "name": "CookieMaxAge",
+    "type": "java.lang.String",
+    "description": "A description for 'CookieMaxAge'"
+  },
+  {
+    "name": "kai9properties.CookieMaxAge",
+    "type": "java.lang.String",
+    "description": "A description for 'kai9properties.CookieMaxAge'"
+  },
+  {
+    "name": "datasource.primary.url",
+    "type": "java.lang.String",
+    "description": "A description for 'datasource.primary.url'"
+  },
+  {
+    "name": "datasource.primary.username",
+    "type": "java.lang.String",
+    "description": "A description for 'datasource.primary.username'"
+  },
+  {
+    "name": "datasource.primary.password",
+    "type": "java.lang.String",
+    "description": "A description for 'datasource.primary.password'"
+  },
+  {
+    "name": "datasource.secondary.url",
+    "type": "java.lang.String",
+    "description": "A description for 'datasource.secondary.url'"
+  },
+  {
+    "name": "datasource.secondary.username",
+    "type": "java.lang.String",
+    "description": "A description for 'datasource.secondary.username'"
+  },
+  {
+    "name": "datasource.secondary.password",
+    "type": "java.lang.String",
+    "description": "A description for 'datasource.secondary.password'"
+  },
+  {
+    "name": "spring.datasource.secondary.url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.secondary.url'"
+  },
+  {
+    "name": "spring.datasource.secondary.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.secondary.username'"
+  },
+  {
+    "name": "spring.datasource.secondary.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.secondary.password'"
+  },
+  {
+    "name": "spring.datasource.common.url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.common.url'"
+  },
+  {
+    "name": "spring.datasource.common.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.common.username'"
+  },
+  {
+    "name": "spring.datasource.common.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.common.password'"
+  },
+  {
+    "name": "spring.datasource.common.driverClassName",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.common.driverClassName'"
+  },
+  {
+    "name": "spring.datasource.common.driverClassName",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.common.driverClassName'"
+  },
+  {
+    "name": "spring.datasource.common.driverClassName",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.common.driverClassName'"
+  },
+  {
+    "name": "spring.datasource.common.driverClassName",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.common.driverClassName'"
+  },
+  {
+    "name": "spring.datasource.common.driverClassName",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.common.driverClassName'"
+  },
+  {
+    "name": "selenium.edge.driver",
+    "type": "java.lang.String",
+    "description": "A description for 'selenium.edge.driver'"
+  },
+  {
+    "name": "selenium.firefox.driver",
+    "type": "java.lang.String",
+    "description": "A description for 'selenium.firefox.driver'"
+  },
+  {
+    "name": "selenium.chrome.driver",
+    "type": "java.lang.String",
+    "description": "A description for 'selenium.chrome.driver'"
+  },
+  {
+    "name": "selenium.edge.binary",
+    "type": "java.lang.String",
+    "description": "A description for 'selenium.edge.binary'"
+  },
+  {
+    "name": "selenium.firefox.binary",
+    "type": "java.lang.String",
+    "description": "A description for 'selenium.firefox.binary'"
+  },
+  {
+    "name": "selenium.chrome.binary",
+    "type": "java.lang.String",
+    "description": "A description for 'selenium.chrome.binary'"
+  },
+  {
+    "name": "selenium.screenshot.path",
+    "type": "java.lang.String",
+    "description": "A description for 'selenium.screenshot.path'"
+  },
+  {
+    "name": "charset",
+    "type": "java.lang.String",
+    "description": "A description for 'charset'"
+  },
+  {
+    "name": "charset",
+    "type": "java.lang.String",
+    "description": "A description for 'charset'"
+  },
+  {
+    "name": "spring.datasource.primary.schema",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.primary.schema'"
+  },
+  {
+    "name": "spring.datasource.common.schema",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.common.schema'"
+  },
+  {
+    "name": "jwt.domain",
+    "type": "java.lang.String",
+    "description": "A description for 'jwt.domain'"
+  },
+  {
+    "name": "spring.datasource.som.url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.som.url'"
+  },
+  {
+    "name": "spring.datasource.som.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.som.username'"
+  },
+  {
+    "name": "spring.datasource.som.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.som.password'"
+  },
+  {
+    "name": "spring.datasource.som.driverClassName",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.som.driverClassName'"
+  },
+  {
+    "name": "spring.datasource.som.schema",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.som.schema'"
+  },
+  {
+    "name": "management.endpoints.web.exposure.include",
+    "type": "java.lang.String",
+    "description": "A description for 'management.endpoints.web.exposure.include'"
+  }
+]}
