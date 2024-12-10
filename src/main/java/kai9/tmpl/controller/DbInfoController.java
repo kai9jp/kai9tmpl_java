@@ -55,11 +55,7 @@ public class DbInfoController {
             JsonResponse json = new JsonResponse();
             json.setReturn_code(HttpStatus.BAD_REQUEST.value());
             json.setMsg("テーブル名が指定されていません。");
-            try {
-                json.SetJsonResponse(res);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            json.SetJsonResponse(res);
             return;
         }
 
@@ -73,35 +69,41 @@ public class DbInfoController {
                     tableName);
             dbInfo.put("requiredColumns", requiredColumns);
 
-            // 各カラムの長さを取得
-            // 各カラムの長さおよび精度を格納するマップを初期化
-            Map<String, String> columnLengths = new HashMap<>();
+            // カラム情報 (長さとNOT NULL属性) を格納するマップを初期化
+            Map<String, Map<String, Object>> columnDetails = new HashMap<>();
 
             // データベースからカラム情報を取得するクエリを実行
             jdbcTemplate.query(
-                    "SELECT column_name, data_type, character_maximum_length, numeric_precision, numeric_scale " +
+                    "SELECT column_name, data_type, character_maximum_length, numeric_precision, numeric_scale, is_nullable " +
                             "FROM information_schema.columns " +
                             "WHERE table_name = ?",
                     rs -> {
-                        // カラム名とデータ型を取得
                         String columnName = rs.getString("column_name");
                         String dataType = rs.getString("data_type");
 
-                        // データ型に応じてカラムの長さや精度を設定
+                        // 各カラムの詳細情報を格納するマップ
+                        Map<String, Object> columnInfo = new HashMap<>();
+                        columnInfo.put("dataType", dataType);
+
+                        // データ型に応じた長さ・精度を設定
                         if (dataType.equals("character varying")) {
-                            // VARCHAR型の場合、最大文字数を取得して格納
-                            columnLengths.put(columnName, String.valueOf(rs.getInt("character_maximum_length")));
+                            columnInfo.put("maxLength", rs.getInt("character_maximum_length"));
                         } else if (dataType.equals("numeric") || dataType.equals("double precision")) {
                             // NUMERIC型やDOUBLE PRECISION型の場合、精度とスケールを取得して格納
                             int precision = rs.getInt("numeric_precision");
                             int scale = rs.getInt("numeric_scale");
-                            columnLengths.put(columnName, precision + "," + scale);
+                            columnInfo.put("precision", precision);
+                            columnInfo.put("scale", scale);
                         }
+
+                        // NOT NULL属性を追加
+                        columnInfo.put("notnull", rs.getString("is_nullable").equals("NO"));
+
+                        columnDetails.put(columnName, columnInfo);
                     },
-                    // テーブル名をパラメータとして渡す
                     tableName);
-            // 取得したカラム情報をdbInfoに格納
-            dbInfo.put("columnLengths", columnLengths);
+
+            dbInfo.put("columnDetails", columnDetails);
 
             // ユニークインデックス情報を取得
             List<Map<String, Object>> uniqueColumns = jdbcTemplate.queryForList(
@@ -140,11 +142,7 @@ public class DbInfoController {
         } catch (Exception e) {
             JsonResponse json = Kai9Utils.handleException(e, res);
             json.setReturn_code(HttpStatus.INTERNAL_SERVER_ERROR.value());
-            try {
-                json.SetJsonResponse(res);
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+            json.SetJsonResponse(res);
         }
     }
 
@@ -420,11 +418,7 @@ public class DbInfoController {
         } catch (Exception e) {
             JsonResponse json = Kai9Utils.handleException(e, res);
             json.setReturn_code(HttpStatus.INTERNAL_SERVER_ERROR.value());
-            try {
-                json.SetJsonResponse(res);
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+            json.SetJsonResponse(res);
         }
     }
 
