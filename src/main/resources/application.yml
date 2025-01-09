@@ -55,10 +55,8 @@ server:
     protocol: TLSv1.3
     # キーストア・タイプ
     key-store-type: PKCS12
-    # 鍵の格納先(本物証明書2022/10～90日有効)
-    key-store: classpath:keystore/keystore.p12
     # 鍵の格納先(自己証明書)
-    # key-store: classpath:keystore/self_keystore.p12
+    key-store: classpath:keystore/self_keystore.p12
     # 鍵のパスワード
     key-store-password: kai9kai9
     # keystore内部におけるkeypairの名称
